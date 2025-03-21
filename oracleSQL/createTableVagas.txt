@@ -1,0 +1,19 @@
+-- Criação da tabela de vagas
+CREATE TABLE Vaga (
+    id NUMBER PRIMARY KEY,
+    hospital_id NUMBER REFERENCES Hospital(id),
+    aluno_id NUMBER REFERENCES Aluno(id),
+    data_alocacao TIMESTAMP,
+    CONSTRAINT vaga_unica UNIQUE (aluno_id)
+);
+
+-- Criação da sequência para ID de vagas
+CREATE SEQUENCE vaga_seq START WITH 1 INCREMENT BY 1;
+
+-- Trigger para gerar ID automático em Vaga
+CREATE OR REPLACE TRIGGER trg_vaga_id
+BEFORE INSERT ON Vaga
+FOR EACH ROW
+BEGIN
+    SELECT vaga_seq.NEXTVAL INTO :NEW.id FROM dual;
+END;

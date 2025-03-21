@@ -1,0 +1,20 @@
+-- Criação da tabela de hospitais
+CREATE TABLE Hospital (
+    id NUMBER PRIMARY KEY,
+    nome VARCHAR2(100) NOT NULL,
+    endereco VARCHAR2(255) NOT NULL,
+    latitude NUMBER NOT NULL,
+    longitude NUMBER NOT NULL,
+    total_vagas NUMBER NOT NULL
+);
+
+-- Criação da sequência para ID de hospitais
+CREATE SEQUENCE hospital_seq START WITH 1 INCREMENT BY 1;
+
+-- Trigger para gerar ID automático em Hospital
+CREATE OR REPLACE TRIGGER trg_hospital_id
+BEFORE INSERT ON Hospital
+FOR EACH ROW
+BEGIN
+    SELECT hospital_seq.NEXTVAL INTO :NEW.id FROM dual;
+END;

@@ -1,0 +1,19 @@
+-- Criação da tabela de alunos
+CREATE TABLE Aluno (
+    id NUMBER PRIMARY KEY,
+    nome VARCHAR2(100) NOT NULL,
+    endereco VARCHAR2(255) NOT NULL,
+    latitude NUMBER NOT NULL,
+    longitude NUMBER NOT NULL
+);
+
+-- Criação da sequência para ID de alunos
+CREATE SEQUENCE aluno_seq START WITH 1 INCREMENT BY 1;
+
+-- Trigger para gerar ID automático em Aluno
+CREATE OR REPLACE TRIGGER trg_aluno_id
+BEFORE INSERT ON Aluno
+FOR EACH ROW
+BEGIN
+    SELECT aluno_seq.NEXTVAL INTO :NEW.id FROM dual;
+END;
