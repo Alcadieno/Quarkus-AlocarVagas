@@ -1,60 +1,47 @@
-# quarkus-escola Project
+QUARKUS API - ALOCAR VAGAS DE ESTAGIO 
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+COMO FOI FEITA A ARQUITETURA DA MINHA API ?
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+APLICANDO DOMAIN DRIVEN DESING
 
-## Running the application in dev mode
+PREMISSA: "não faz sentido falar de solução , sem antes identificarmos o problema e não faz sentido falar de implementação sem antes verificar qual é a solução " 
+-Efrat goldratt
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
+ 1º PASSO-------------------------------------
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+ O ASPECTO ESTRATEGICO
 
-## Packaging and running the application
+-Levantar as seguintes questões : 
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+Qual software estamos construindo ? uma aplicação para gerenciar e coordenar a alocação de vagas de estágios em uma instituição de ensino superior. 
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+Porque ? Existe uma necessidade de otimizar o processo de organização de vagas de estagio , além da possibilidade de utilizar a tecnologia para aumentar a satisfação dos alunos com relação a distância do lugar de estágio e o seu domicílio. 
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
+DEFINIR QUAL O CAMPO DO PROBLEMA DE NEGOCIO  
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+- Gestão de recursos
+- Auxílio de decisões
+- Gestão de dados
+- Otimização de fluxos
 
-## Creating a native executable
+2º PASSO ----------------------------------
+Como o desenvolvimento de um software é em equipe é necessário voltar no 1º passo e discutir com toda a equipe , levantar questões como:
+- Todos os envolvidos no projeto concordam com as definições do passo 1 ?
+- Há algum pressuposto conflitante ?
 
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
+3º PASSO ----------------------------------
 
-You can then execute your native executable with: `./target/quarkus-escola-1.0-runner`
+A LINGUAGEM ÚBIQUA (Linguagem do negocio)
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
+É essencial que todos , sejam desenvolvedores , arquitetos , especialistas , dono do produto falem a mesma linguagem , sem jargões técnicos ... um dono do produto não precisa saber o que é uma classe abstrata , e da mesma maneira que numa brincadeira de telefone sem fio , onde a mensagem criada pela primeira pessoa , ao ser repassada por varias vezes , com certeza irá chegar ao final completamente diferente da mensagem original  
 
-## Related Guides
+-Evitar sinônimos
+-Evitar termos ambiguos 
 
-- RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing Jakarta REST and more
+A gestão da linguagem Ubíqua  poderá ser feita através de glossário de termos , para documentar a linguagem utilizada pelas pessoas que já estão no projeto há mais tempo ,dessa maneira o glossário poderá minimizar  o processo de integração de novos membros da equipe pois o glossário servirá como um dicionário para os novatos. 
 
-## Provided Code
 
-### RESTEasy JAX-RS
+BONUS: Verificar sobre a ferramenta Ndepend 
 
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+...ainda pesquisando 
